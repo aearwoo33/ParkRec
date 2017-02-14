@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.aearwood.coordinator.api.AthleteRestControllerTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.861 sec <<< FAILURE! - in com.aearwood.coordinator.api.AthleteRestControllerTest
+createAthleteSuccess(com.aearwood.coordinator.api.AthleteRestControllerTest)  Time elapsed: 0.524 sec  <<< FAILURE!
+java.lang.AssertionError: No value at JSON path "@.age", exception: json can not be null or empty
+	at org.springframework.test.util.JsonPathExpectationsHelper.evaluateJsonPath(JsonPathExpectationsHelper.java:245)
+	at org.springframework.test.util.JsonPathExpectationsHelper.assertValue(JsonPathExpectationsHelper.java:73)
+	at org.springframework.test.web.servlet.result.JsonPathResultMatchers$1.match(JsonPathResultMatchers.java:86)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:171)
+	at com.aearwood.coordinator.api.AthleteRestControllerTest.createAthleteSuccess(AthleteRestControllerTest.java:159)
+
