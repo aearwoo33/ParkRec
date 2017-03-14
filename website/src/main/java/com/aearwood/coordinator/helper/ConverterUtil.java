@@ -1,13 +1,15 @@
 package com.aearwood.coordinator.helper;
 
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
 import com.aearwood.coordinator.domain.Athlete;
 import com.aearwood.coordinator.domain.Coach;
+import com.aearwood.coordinator.domain.Game;
 import com.aearwood.coordinator.domain.Team;
 import com.aearwood.coordinator.dto.AthleteDTO;
 import com.aearwood.coordinator.dto.CoachDTO;
+import com.aearwood.coordinator.dto.GameDTO;
 import com.aearwood.coordinator.dto.TeamDTO;
 
 public class ConverterUtil {
@@ -22,6 +24,15 @@ public class ConverterUtil {
 		athleteDTO.setId(athlete.getId());
 		athleteDTO.setUserId(athlete.getUserId());
 		return athleteDTO;
+	}
+	public static GameDTO convertToDTO(Game  game) {
+		GameDTO gameDTO = new GameDTO();
+		gameDTO.setAwayTeam(game.getAwayTeam());
+		gameDTO.setDateTime(game.getDateTime());
+		gameDTO.setHomeTeam(game.getHomeTeam());
+		gameDTO.setRefereeId(game.getRefereeId());
+		gameDTO.setId(game.getId());
+		return gameDTO;
 	}
 	public static TeamDTO convertToDTO(Team team) {
 		TeamDTO teamDTO = new TeamDTO();
@@ -71,6 +82,16 @@ public class ConverterUtil {
 			coachDTOSet.add(teamDTO);
 		}
 		return coachDTOSet;
+
+	}
+	
+	public static Set<GameDTO> convertToGameDTOSet(Set<Game> gameSet) {
+		Set<GameDTO> gameDTOset =  new HashSet<>();
+		for (Game game : gameSet) {
+			GameDTO gameDTO = convertToDTO(game);
+			gameDTOset.add(gameDTO);
+		}
+		return gameDTOset;
 
 	}
 }
